@@ -1,16 +1,20 @@
+import useStore from "@/app/store";
 import { Input } from "antd";
-import { AudioOutlined } from "@ant-design/icons";
-
 const { Search } = Input;
 
 const Searchbar = () => {
-  const onSearch = (value: string) => console.log(value);
+  const { getSearchKey } = useStore();
+
+  const onSearch = (value: string) => {
+    const key = value.trim().toLowerCase();
+    getSearchKey(key);
+  };
 
   return (
     <Search
       className="w-1/2"
       size="large"
-      placeholder="input search text"
+      placeholder="Search..."
       onSearch={onSearch}
       enterButton
     />

@@ -1,49 +1,55 @@
 import { Formik, Form } from "formik";
 import { Button } from "antd";
-import SelectInput from "@/components/form/SelectInput";
+import { LaptopInitialValues } from "@/mocks/laptops";
 import CheckBox from "../components/form/CheckBox";
 import RangeInput from "@/components/form/RangeInput";
-import { LaptopType } from "@/mocks/laptops";
+import { filterCheckboxes } from "@/mocks/filterCheckboxes";
+import useStore from "@/app/store";
 
-const initialValues: LaptopType = {
-  price: "",
-  manufacturers: "",
-  category: "",
-  displaySize: "",
-  touchScreen: "",
-  ssd: "",
-  hdd: "",
-  numberOfCores: "",
-  ram: "",
-  cpu: "",
-  os: "",
-  videoCard: "",
-  videoCardMemory: "",
+const initialValues: LaptopInitialValues = {
+  price: { min: 0, max: 100000 },
+  manufacturer: [],
+  category: [],
+  displaySize: [],
+  touchScreen: [],
+  ssd: [],
+  hdd: [],
+  numberOfCores: [],
+  ram: [],
+  cpu: [],
+  os: [],
+  videoCard: [],
+  videoCardMemory: [],
 };
 
 const Filterbar = () => {
-  const submitHandler = () => {};
+  const { setFilters } = useStore();
+
+  const submitHandler = (values) => setFilters(values);
+
   return (
-    <div className="w-[300px] p-3 rounded-lg border border-solid border-slate-300">
+    <div className="w-[300px] p-5 rounded-lg border border-solid border-slate-300">
       <Formik initialValues={initialValues} onSubmit={submitHandler}>
         {() => (
           <Form>
-            <RangeInput name="price" />
-            <SelectInput name="manufacturers" options={[]} />
-            <SelectInput name="category" options={[]} />
-            <SelectInput name="displaySize" options={[]} />
-            <CheckBox name="touchScreen" />
-            <SelectInput name="ssd" options={[]} />
-            <SelectInput name="hdd" options={[]} />
-            <SelectInput name="numberOfCores" options={[]} />
-            <SelectInput name="ram" options={[]} />
-            <SelectInput name="cpu" options={[]} />
-            <SelectInput name="os" options={[]} />
-            <SelectInput name="videoCard" options={[]} />
-            <SelectInput name="videoCardMemory" options={[]} />
-            <div className="col-span-6 flex justify-end">
-              <Button>Search</Button>
-            </div>
+            <RangeInput name="price" label="Price range" />
+            {filterCheckboxes.map((checkbox) => (
+              <div className="mb-4" key={checkbox.id}>
+                <CheckBox
+                  name={checkbox.name}
+                  label={checkbox.label}
+                  options={checkbox.options}
+                />
+                <hr className="mt-2" />
+              </div>
+            ))}
+            <Button
+              htmlType="submit"
+              size="large"
+              className="w-full bg-purple-800 text-slate-50"
+            >
+              Search
+            </Button>
           </Form>
         )}
       </Formik>
@@ -52,3 +58,5 @@ const Filterbar = () => {
 };
 
 export default Filterbar;
+
+// fixed left-[110px] bottom-24 w-[280px]

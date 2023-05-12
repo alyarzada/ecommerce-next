@@ -1,6 +1,7 @@
 import Laptops from "@/components/pages/home/Laptops";
 import Filterbar from "@/layout/Filterbar";
 import Sortbar from "@/layout/Sortbar";
+import { Toaster } from "react-hot-toast";
 
 export default function HomePage() {
   return (
@@ -10,6 +11,7 @@ export default function HomePage() {
         <Sortbar />
         <Laptops />
       </div>
+      <Toaster position="top-center" />
     </main>
   );
 }

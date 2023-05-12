@@ -1,6 +1,7 @@
 export interface LaptopType {
   id?: number;
   price: string;
+  count: 1;
   manufacturer: string;
   category: string;
   displaySize: string;
@@ -16,10 +17,28 @@ export interface LaptopType {
   image: string;
 }
 
+export interface LaptopInitialValues {
+  price: string[] | [];
+  count: number;
+  manufacturer: string[] | [];
+  category: string[] | [];
+  displaySize: string[] | [];
+  touchScreen: string[] | [];
+  ssd: string[] | [];
+  hdd: string[] | [];
+  numberOfCores: string[] | [];
+  ram: string[] | [];
+  cpu: string[] | [];
+  os: string[] | [];
+  videoCard: string[] | [];
+  videoCardMemory: string[] | [];
+}
+
 const laptops: LaptopType[] = [
   {
     id: 1,
-    price: "$799.99",
+    price: "799.99",
+    count: 1,
     manufacturer: "Dell",
     category: "Gaming",
     displaySize: "15.6 inches",
@@ -37,7 +56,8 @@ const laptops: LaptopType[] = [
   },
   {
     id: 2,
-    price: "$999.99",
+    price: "999.99",
+    count: 1,
     manufacturer: "Asus",
     category: "Gaming",
     displaySize: "15.6 inches",
@@ -51,11 +71,12 @@ const laptops: LaptopType[] = [
     videoCard: "NVIDIA GeForce GTX 1660 Ti",
     videoCardMemory: "6 GB",
     image:
-      "https://irshad.az/resized/resize315/center/products/39922/53392c736a4da284873278a3f16856cf.jpg",
+      "https://irshad.az/resized/fit540x550/center/products/85025/90nr0c54-m00350-4.png",
   },
   {
     id: 3,
-    price: "$1,499.99",
+    price: "1499.99",
+    count: 1,
     manufacturer: "Apple",
     category: "Multimedia",
     displaySize: "16 inches",
@@ -69,11 +90,12 @@ const laptops: LaptopType[] = [
     videoCard: "AMD Radeon Pro 5300M",
     videoCardMemory: "4 GB",
     image:
-      "https://irshad.az/resized/resize315/center/products/39922/53392c736a4da284873278a3f16856cf.jpg",
+      "https://irshad.az/resized/fit540x550/center/products/83251/apple-macbook-pro-m2-mphf3ru.jpg",
   },
   {
     id: 4,
-    price: "$1120.99",
+    price: "1120.99",
+    count: 1,
     manufacturer: "Acer",
     category: "Gaming",
     displaySize: "15.6 inches",
@@ -87,11 +109,12 @@ const laptops: LaptopType[] = [
     videoCard: "NVIDIA GeForce GTX 1650",
     videoCardMemory: "4 GB",
     image:
-      "https://irshad.az/resized/resize315/center/products/39922/53392c736a4da284873278a3f16856cf.jpg",
+      "https://irshad.az/resized/fit540x550/center/products/83885/nxabder006-1.jpg",
   },
   {
     id: 5,
-    price: "$1379.99",
+    price: "1379.99",
+    count: 1,
     manufacturer: "Dell",
     category: "Business",
     displaySize: "14 inches",
@@ -109,7 +132,8 @@ const laptops: LaptopType[] = [
   },
   {
     id: 6,
-    price: "$899.99",
+    price: "899.99",
+    count: 1,
     manufacturer: "Lenovo",
     category: "Convertible",
     displaySize: "13.3 inches",
@@ -123,11 +147,12 @@ const laptops: LaptopType[] = [
     videoCard: "Intel UHD Graphics",
     videoCardMemory: "Shared",
     image:
-      "https://irshad.az/resized/resize315/center/products/39922/53392c736a4da284873278a3f16856cf.jpg",
+      "https://irshad.az/resized/resize315/center/products/84195/21ad003frt-1-2.png",
   },
   {
     id: 7,
-    price: "$1799.99",
+    price: "1799.99",
+    count: 1,
     manufacturer: "HP",
     category: "Gaming",
     displaySize: "17.3 inches",
@@ -141,11 +166,12 @@ const laptops: LaptopType[] = [
     videoCard: "NVIDIA GeForce RTX 3070",
     videoCardMemory: "8 GB",
     image:
-      "https://irshad.az/resized/resize315/center/products/39922/53392c736a4da284873278a3f16856cf.jpg",
+      "https://irshad.az/resized/resize315/center/products/85041/4h2w0eaassssasas.png",
   },
   {
     id: 8,
-    price: "$949.99",
+    price: "949.99",
+    count: 1,
     manufacturer: "ASUS",
     category: "Gaming",
     displaySize: "15.6 inches",
@@ -156,14 +182,15 @@ const laptops: LaptopType[] = [
     ram: "16 GB",
     cpu: "AMD Ryzen 7 4800HS",
     os: "Windows 10",
-    videoCard: "NVIDIA GeForce GTX 1650",
+    videoCard: "NVIDIA GeForce GTX 1660 Ti",
     videoCardMemory: "4 GB",
     image:
-      "https://irshad.az/resized/resize315/center/products/39922/53392c736a4da284873278a3f16856cf.jpg",
+      "https://irshad.az/resized/fit540x550/center/products/85025/90nr0c54-m00350-4.png",
   },
   {
     id: 9,
-    price: "$799.99",
+    price: "799.99",
+    count: 1,
     manufacturer: "Lenovo",
     category: "Business",
     displaySize: "14 inches",
@@ -177,11 +204,12 @@ const laptops: LaptopType[] = [
     videoCard: "Intel UHD Graphics",
     videoCardMemory: "Shared",
     image:
-      "https://irshad.az/resized/resize315/center/products/39922/53392c736a4da284873278a3f16856cf.jpg",
+      "https://irshad.az/resized/resize315/center/products/84195/21ad003frt-1-2.png",
   },
   {
     id: 10,
-    price: "$1599.99",
+    price: "1599.99",
+    count: 1,
     manufacturer: "Apple",
     category: "Multimedia",
     displaySize: "16 inches",
@@ -195,11 +223,12 @@ const laptops: LaptopType[] = [
     videoCard: "AMD Radeon Pro 5600M",
     videoCardMemory: "8 GB",
     image:
-      "https://irshad.az/resized/resize315/center/products/39922/53392c736a4da284873278a3f16856cf.jpg",
+      "https://irshad.az/resized/fit540x550/center/products/83251/apple-macbook-pro-m2-mphf3ru.jpg",
   },
   {
     id: 11,
-    price: "$599.99",
+    price: "599.99",
+    count: 1,
     manufacturer: "HP",
     category: "Budget",
     displaySize: "15.6 inches",
@@ -210,14 +239,15 @@ const laptops: LaptopType[] = [
     ram: "8 GB",
     cpu: "AMD Athlon Silver 3050U",
     os: "Windows 10",
-    videoCard: "AMD Radeon Graphics",
+    videoCard: "AMD Radeon Pro 5300M",
     videoCardMemory: "Shared",
     image:
-      "https://irshad.az/resized/resize315/center/products/39922/53392c736a4da284873278a3f16856cf.jpg",
+      "https://irshad.az/resized/resize315/center/products/85041/4h2w0eaassssasas.png",
   },
   {
     id: 12,
-    price: "$1299.99",
+    price: "1299.99",
+    count: 1,
     manufacturer: "Dell",
     category: "Multimedia",
     displaySize: "17.3 inches",
@@ -228,14 +258,15 @@ const laptops: LaptopType[] = [
     ram: "16 GB",
     cpu: "Intel Core i7-10750H",
     os: "Windows 10",
-    videoCard: "NVIDIA GeForce GTX 1650 Ti",
+    videoCard: "NVIDIA GeForce GTX 1650",
     videoCardMemory: "4 GB",
     image:
       "https://irshad.az/resized/resize315/center/products/39922/53392c736a4da284873278a3f16856cf.jpg",
   },
   {
     id: 13,
-    price: "$1299.99",
+    price: "1299.99",
+    count: 1,
     manufacturer: "Lenovo",
     category: "Gaming",
     displaySize: "15.6 inches",
@@ -249,11 +280,12 @@ const laptops: LaptopType[] = [
     videoCard: "NVIDIA GeForce GTX 1660 Ti",
     videoCardMemory: "6 GB",
     image:
-      "https://irshad.az/resized/resize315/center/products/39922/53392c736a4da284873278a3f16856cf.jpg",
+      "https://irshad.az/resized/resize315/center/products/84195/21ad003frt-1-2.png",
   },
   {
     id: 14,
-    price: "$849.99",
+    price: "849.99",
+    count: 1,
     manufacturer: "Acer",
     category: "Budget",
     displaySize: "14 inches",
@@ -267,12 +299,13 @@ const laptops: LaptopType[] = [
     videoCard: "Intel UHD Graphics",
     videoCardMemory: "Shared",
     image:
-      "https://irshad.az/resized/resize315/center/products/39922/53392c736a4da284873278a3f16856cf.jpg",
+      "https://irshad.az/resized/fit540x550/center/products/83885/nxabder006-1.jpg",
   },
   {
     id: 15,
-    price: "$2199.99",
-    manufacturer: "Alienware",
+    price: "2199.99",
+    count: 1,
+    manufacturer: "Honor",
     category: "Gaming",
     displaySize: "17.3 inches",
     touchScreen: "No",
@@ -282,14 +315,15 @@ const laptops: LaptopType[] = [
     ram: "32 GB",
     cpu: "Intel Core i9-11900H",
     os: "Windows 10",
-    videoCard: "NVIDIA GeForce RTX 3080",
+    videoCard: "NVIDIA GeForce RTX 3070",
     videoCardMemory: "16 GB",
     image:
-      "https://irshad.az/resized/resize315/center/products/39922/53392c736a4da284873278a3f16856cf.jpg",
+      "https://irshad.az/resized/resize315/center/products/85141/honor-magic-book-x14-i3-8256-space-gray-ndr-wdi.png",
   },
   {
     id: 16,
-    price: "$799.99",
+    price: "799.99",
+    count: 1,
     manufacturer: "HP",
     category: "Business",
     displaySize: "15.6 inches",
@@ -303,11 +337,12 @@ const laptops: LaptopType[] = [
     videoCard: "Intel Iris Xe Graphics",
     videoCardMemory: "Shared",
     image:
-      "https://irshad.az/resized/resize315/center/products/39922/53392c736a4da284873278a3f16856cf.jpg",
+      "https://irshad.az/resized/resize315/center/products/85041/4h2w0eaassssasas.png",
   },
   {
     id: 17,
-    price: "$999.99",
+    price: "999.99",
+    count: 1,
     manufacturer: "Dell",
     category: "Multimedia",
     displaySize: "15.6 inches",
@@ -318,14 +353,15 @@ const laptops: LaptopType[] = [
     ram: "16 GB",
     cpu: "AMD Ryzen 5 5600H",
     os: "Windows 10",
-    videoCard: "AMD Radeon RX 6600M",
+    videoCard: "NVIDIA GeForce RTX 2060",
     videoCardMemory: "8 GB",
     image:
       "https://irshad.az/resized/resize315/center/products/39922/53392c736a4da284873278a3f16856cf.jpg",
   },
   {
     id: 18,
-    price: "$599.99",
+    price: "599.99",
+    count: 1,
     manufacturer: "Asus",
     category: "Budget",
     displaySize: "15.6 inches",
@@ -339,11 +375,12 @@ const laptops: LaptopType[] = [
     videoCard: "Intel UHD Graphics",
     videoCardMemory: "Shared",
     image:
-      "https://irshad.az/resized/resize315/center/products/39922/53392c736a4da284873278a3f16856cf.jpg",
+      "https://irshad.az/resized/fit540x550/center/products/85025/90nr0c54-m00350-4.png",
   },
   {
     id: 19,
-    price: "$1799.99",
+    price: "1799.99",
+    count: 1,
     manufacturer: "Apple",
     category: "Multimedia",
     displaySize: "14 inches",
@@ -354,14 +391,15 @@ const laptops: LaptopType[] = [
     ram: "16 GB",
     cpu: "Apple M1 Pro",
     os: "macOS Monterey",
-    videoCard: "AMD Radeon Pro",
+    videoCard: "AMD Radeon Pro 5300M",
     videoCardMemory: "16 GB",
     image:
-      "https://irshad.az/resized/resize315/center/products/39922/53392c736a4da284873278a3f16856cf.jpg",
+      "https://irshad.az/resized/fit540x550/center/products/83251/apple-macbook-pro-m2-mphf3ru.jpg",
   },
   {
     id: 20,
-    price: "$1299.99",
+    price: "1299.99",
+    count: 1,
     manufacturer: "MSI",
     category: "Gaming",
     displaySize: "17.3 inches",
@@ -375,7 +413,7 @@ const laptops: LaptopType[] = [
     videoCard: "NVIDIA GeForce RTX 3060",
     videoCardMemory: "6 GB",
     image:
-      "https://irshad.az/resized/resize315/center/products/39922/53392c736a4da284873278a3f16856cf.jpg",
+      "https://irshad.az/resized/resize315/center/products/84174/9s7-158315-1099.png",
   },
 ];
 
