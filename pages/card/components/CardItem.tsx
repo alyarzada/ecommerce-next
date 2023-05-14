@@ -1,8 +1,9 @@
 import { FiTrash2 } from "react-icons/fi";
 import useStore from "@/app/store";
 
-const CardItem = ({ item }) => {
-  const { deleteFromCard, increaseItemCount, decreaseItemCount } = useStore();
+const CardItem = ({ item }: any) => {
+  const { deleteFromCard, increaseItemCount, decreaseItemCount }: any =
+    useStore();
 
   return (
     <div className="border boder-solid border-stone-300 p-5 mb-6 rounded-lg flex items-center gap-x-10">

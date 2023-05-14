@@ -3,14 +3,14 @@ import CardItem from "./components/CardItem";
 import { Button } from "antd";
 
 const Card = () => {
-  const { card } = useStore();
+  const { card }: any = useStore();
 
   return (
     <div className="px-[100px]">
       <h1 className="text-[30px] mb-4 font-semibold">Card</h1>
       <div className="flex justify-between gap-x-16">
         <div className="w-[70%]">
-          {card.map((item) => (
+          {card.map((item: any) => (
             <CardItem item={item} key={item.id} />
           ))}
         </div>
@@ -22,7 +22,10 @@ const Card = () => {
             <span className="font-semibold text-lg">
               $
               {Math.round(
-                card.reduce((acc, item) => acc + item.count * item.price, 0)
+                card.reduce(
+                  (acc: number, item: any) => acc + item.count * item.price,
+                  0
+                )
               )}
             </span>
           </div>
