@@ -1,5 +1,5 @@
 import useStore from "@/app/store";
-import CardItem from "./components/cardItem";
+import CardItem from "./components/CardItem";
 import { Button } from "antd";
 
 const Card = () => {
