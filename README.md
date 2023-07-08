@@ -27,7 +27,7 @@ pnpm dev
 
 ## Technology Full Stack
 
-# Frontend
+### Frontend
 - Next.js 13 (Page directory)
 - TypeScript 
 - Tailwind CSS
@@ -40,8 +40,8 @@ pnpm dev
 - Framer-motion
 - React-Icons
 
-# Backend
-- Restfull API
+### Backend
+- RESTful API
 - Prisma ORM
 - PostgresQl Database
 
