@@ -1,6 +1,6 @@
 const Topbar = () => {
   return (
-    <div className="px-[100px] py-4 flex justify-between items-center border-b border-solid border-slate-300">
+    <div className="px-[20px] lg:px-[40px] xl:px-[100px] py-4 flex justify-between items-center border-b border-solid border-slate-300">
       <h1 className="text-purple-700 font-semibold">
         E-commerce <span className="font-normal text-black">project</span>
       </h1>

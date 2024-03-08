@@ -5,6 +5,7 @@ import CheckBox from "../components/form/CheckBox";
 import RangeInput from "@/components/form/RangeInput";
 import { filterCheckboxes } from "@/mocks/filterCheckboxes";
 import useStore from "@/app/store";
+import { CiFilter } from "react-icons/ci";
 
 const initialValues: LaptopInitialValues = {
   price: { min: 0, max: 100000 },
@@ -29,6 +30,13 @@ const Filterbar = () => {
 
   return (
     <div className="w-[300px] p-5 rounded-lg border border-solid border-slate-300">
+      <div className="flex justify-between items-center">
+        <h4 className="font-semibold">Filter</h4>
+        <CiFilter />
+      </div>
+
+      <hr className="my-4" />
+
       <Formik initialValues={initialValues} onSubmit={submitHandler}>
         {() => (
           <Form>

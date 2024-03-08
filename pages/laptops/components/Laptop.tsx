@@ -1,27 +1,25 @@
 import { Button } from "antd";
 import { AiOutlineHeart } from "react-icons/ai";
 import { FaBalanceScaleLeft } from "react-icons/fa";
+import { poster } from "@/services";
+import type { LaptopProps } from "@/types";
 import { useRouter } from "next/router";
-import useStore from "@/app/store";
 import toast from "react-hot-toast";
+import useSWRMutation from "swr/mutation";
 
-interface Props {
-  id: number;
-  price: string;
-  manufacturer: string;
-  category: string;
-  image: string;
-}
-
-const Laptop = ({ laptop }: Props) => {
-  const { price, manufacturer, category, id, image } = laptop;
+const Laptop = ({ laptop }: LaptopProps) => {
   const router = useRouter();
-  const { addToCard, card } = useStore();
+  const { price, manufacturer, category, id, image } = laptop;
+  const { trigger } = useSWRMutation("http://localhost:3000/api/card", poster);
 
-  const addToCardHandler = (e) => {
+  const addToCardHandler = async (e) => {
     e.stopPropagation();
-    addToCard(laptop);
-    toast.success("Product added to card");
+    try {
+      await trigger(laptop);
+      toast.success("Product added to card");
+    } catch (err) {
+      toast.error("Failed:(");
+    }
   };
 
   return (
@@ -55,10 +53,10 @@ const Laptop = ({ laptop }: Props) => {
       <Button
         onClick={addToCardHandler}
         className={`w-full ${
-          card.includes(laptop) ? "bg-purple-500" : "bg-green-500"
+          5 < 0 ? "bg-purple-500" : "bg-green-500"
         } text-slate-50`}
       >
-        {card.includes(laptop) ? "Product is in Card" : "Add to Card"}
+        {5 < 0 ? "Product is in Card" : "Add to Card"}
       </Button>
     </div>
   );

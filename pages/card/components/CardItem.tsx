@@ -1,9 +1,29 @@
+import useSWRMutation from "swr/mutation";
 import { FiTrash2 } from "react-icons/fi";
-import useStore from "@/app/store";
+import { deleter } from "@/services";
 
 const CardItem = ({ item }: any) => {
-  const { deleteFromCard, increaseItemCount, decreaseItemCount }: any =
-    useStore();
+  const { trigger } = useSWRMutation(
+    "http://localhost:3000/api/card/",
+    deleter,
+    {
+      populateCache: (x, y) => {
+        console.log("x", x);
+        console.log("y", y);
+
+        return y; /* y.filter((item) => item.id !== x) */
+      },
+      revalidate: false,
+      optimisticData: "hello",
+    }
+  );
+
+  const deleteFromCard = async (id) => {
+    await trigger(id, {
+      optimisticData: "hello",
+      populateCache: true,
+    });
+  };
 
   return (
     <div className="border boder-solid border-stone-300 p-5 mb-6 rounded-lg flex items-center gap-x-10">
@@ -19,14 +39,14 @@ const CardItem = ({ item }: any) => {
         <div className="flex gap-x-5 items-center w-full">
           <div className="border border-solid border-stone-400 px-3 py-2 rounded flex items-center gap-x-10">
             <span
-              onClick={() => decreaseItemCount(item.id)}
+              onClick={() => console.log("decrease ammount")}
               className="font-semibold block text-xl cursor-pointer select-none"
             >
               -
             </span>
             <span className="text-xl font-semibold">{item.count}</span>
             <span
-              onClick={() => increaseItemCount(item.id)}
+              onClick={() => console.log("increase ammount")}
               className="font-semibold block text-xl cursor-pointer select-none"
             >
               +
@@ -40,9 +60,7 @@ const CardItem = ({ item }: any) => {
 
       <div className="flex flex-col justify-between self-start h-full">
         <div
-          onClick={() => {
-            deleteFromCard(item.id);
-          }}
+          onClick={() => deleteFromCard(item.id)}
           className="bg-red-500/10 text-red-700 cursor-pointer rounded p-3 mb-[86px]"
         >
           <FiTrash2 size={20} />

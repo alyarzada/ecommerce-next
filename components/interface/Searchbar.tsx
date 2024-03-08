@@ -12,7 +12,7 @@ const Searchbar = () => {
 
   return (
     <Search
-      className="w-1/2"
+      className="w-1/2 hidden md:block"
       size="large"
       placeholder="Search..."
       onSearch={onSearch}

@@ -2,6 +2,10 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
+import SliderItemOne from "@/assets/images/slider-image-one.webp";
+import SliderItemTwo from "@/assets/images/slider-image-two.webp";
+import Image from "next/image";
+
 const SlickSlider = () => {
   const settings = {
     dots: true,
@@ -12,18 +16,19 @@ const SlickSlider = () => {
   };
 
   return (
-    <div className="px-[100px] mb-14">
+    <div className="px-[20px] lg:px-[40px] xl:px-[100px] mb-14">
       <Slider {...settings}>
         <div>
-          <img
-            src="https://kontakt.az/wp-content/uploads/2023/03/Mac-does-that-web-site-banner-1800x260-1.png"
+          <Image
+            src={SliderItemOne}
             alt=""
             className="h-[200px] w-full object-cover object-center"
           />
         </div>
+
         <div>
-          <img
-            src="https://kontakt.az/wp-content/uploads/2022/12/720x380-copy@3x-scaled.webp"
+          <Image
+            src={SliderItemTwo}
             alt=""
             className="h-[200px] w-full object-cover object-center"
           />

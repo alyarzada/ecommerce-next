@@ -12,9 +12,13 @@ const Layout = ({ children }: Props) => {
   return (
     <>
       <Topbar />
+
       <Navbar />
+
       <SlickSlider />
+
       <main>{children}</main>
+
       <Footer />
     </>
   );

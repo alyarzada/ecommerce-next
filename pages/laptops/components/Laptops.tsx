@@ -1,9 +1,8 @@
-import laptops from "@/mocks/laptops";
-import Laptop from "./Laptop";
-import useStore from "@/app/store";
 import { useEffect } from "react";
+import useStore from "@/app/store";
+import Laptop from "./Laptop";
 
-const Laptops = () => {
+const Laptops = ({ laptops }) => {
   const { filters, sortValue, searchKey, getLaptopsCount } = useStore();
 
   useEffect(() => {
@@ -13,7 +12,7 @@ const Laptops = () => {
   let filteredLaptops;
 
   // filtering
-  const filterLaptops = (laptops, filters) => {
+  const filterLaptops = (laptops: any, filters: any) => {
     if (typeof window !== "undefined") {
       window.scrollTo(0, 0);
     }
@@ -64,7 +63,7 @@ const Laptops = () => {
     return <h1 className="font-semibold">No item found</h1>;
 
   return (
-    <div className="w-full grid grid-cols-3 gap-4">
+    <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
       {filteredLaptops.map((laptop) => {
         return <Laptop key={laptop.id} laptop={laptop} />;
       })}

@@ -1,18 +1,19 @@
-import useStore from "@/app/store";
 import CardItem from "./components/CardItem";
 import { Button } from "antd";
 
-const Card = () => {
-  const { card }: any = useStore();
-
+const Card = ({ card }) => {
   return (
     <div className="px-[100px]">
       <h1 className="text-[30px] mb-4 font-semibold">Card</h1>
       <div className="flex justify-between gap-x-16">
         <div className="w-[70%]">
-          {card.map((item: any) => (
-            <CardItem item={item} key={item.id} />
-          ))}
+          {card.length > 0 ? (
+            card.map((item: any) => <CardItem item={item} key={item.id} />)
+          ) : (
+            <div>
+              <h1 className="text-purple-800 font-semibold text-lg">No item</h1>
+            </div>
+          )}
         </div>
 
         <div className="border-2 border-solid border-purple-500 rounded-lg py-4 px-6 h-fit flex-1">
@@ -42,3 +43,19 @@ const Card = () => {
 };
 
 export default Card;
+
+export const getServerSideProps = async ({ req, res }) => {
+  res.setHeader(
+    "Cache-Control",
+    "public, s-maxage=1, stale-while-revalidate=59"
+  );
+
+  const response = await fetch(process.env.BASE_URL + "/card");
+  const data = await response.json();
+
+  return {
+    props: {
+      card: data,
+    },
+  };
+};

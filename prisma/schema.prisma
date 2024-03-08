@@ -1,0 +1,46 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Laptop {
+  id              Int    @id @default(autoincrement())
+  price           String
+  count           Int
+  manufacturer    String
+  category        String
+  displaySize     String
+  touchScreen     String
+  ssd             String
+  hdd             String
+  numberOfCores   String
+  ram             String
+  cpu             String
+  os              String
+  videoCard       String
+  videoCardMemory String
+  image           String
+}
+
+model CardItem {
+  id              Int    @id @default(autoincrement())
+  price           String
+  count           Int
+  manufacturer    String
+  category        String
+  displaySize     String
+  touchScreen     String
+  ssd             String
+  hdd             String
+  numberOfCores   String
+  ram             String
+  cpu             String
+  os              String
+  videoCard       String
+  videoCardMemory String
+  image           String
+}
